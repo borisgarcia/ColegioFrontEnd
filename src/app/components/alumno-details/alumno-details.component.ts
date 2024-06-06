@@ -19,7 +19,7 @@ export class AlumnoDetailsComponent implements OnInit {
     genero: 0,
     fechaNacimiento: undefined
   };
-  
+
   message = '';
 
   constructor(
