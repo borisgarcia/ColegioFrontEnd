@@ -1,22 +1,22 @@
 @if (viewMode){
-@if (currentAlumno.id){
-<h4>Alumno</h4>
-<div>
-  <label><strong>Nombre:</strong></label> {{ currentAlumno.nombre }}
-</div>
-<div>
-  <label><strong>Apellido:</strong></label>
-  {{ currentAlumno.apellidos }}
-</div>
-<div>
-  <label><strong>Genero:</strong></label>
-  {{ currentAlumno.genero }}
-</div>
+  @if (currentAlumno.id){
+    <h4>Alumno</h4>
+    <div>
+      <label><strong>Nombre:</strong></label> {{ currentAlumno.nombre }}
+    </div>
+    <div>
+      <label><strong>Apellido:</strong></label>
+      {{ currentAlumno.apellidos }}
+    </div>
+    <div>
+      <label><strong>Genero:</strong></label>
+      {{ currentAlumno.genero }}
+    </div>
 
-<a class="badge badge-warning" routerLink="/alumnos/{{ currentAlumno.id }}">
-  Edit
-</a>
-}
+    <a class="badge badge-warning" routerLink="/alumnos/{{ currentAlumno.id }}">
+      Edit
+    </a>
+  }
 } @else {
 @if (currentAlumno.id) {
 <div class="edit-form">

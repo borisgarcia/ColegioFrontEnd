@@ -1,0 +1,16 @@
+<div class="list row">
+    <div class="col-md-6">
+        <h4>Profesores</h4>
+        <ul class="list-group">
+            @for (profesor of profesores; track profesor.id; let i = $index) {
+            <li class="list-group-item" [class.active]="i == currentIndex" (click)="setActiveProfesor(profesor, i)">
+                {{ profesor.nombre }} {{ profesor.apellidos }}
+            </li>
+            }
+        </ul>
+        <button style="margin-top: 10px;" routerLink="/add/profesor/" class="btn btn-success">Add</button>
+    </div>
+    <div class="col-md-6">
+        <app-profesor-details [viewMode]=true [currentProfesor]=currentProfesor></app-profesor-details>
+    </div>
+</div>

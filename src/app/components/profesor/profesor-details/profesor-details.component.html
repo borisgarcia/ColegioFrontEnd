@@ -1,0 +1,54 @@
+@if (viewMode){
+    @if (currentProfesor.id){
+        <h4>Profesor</h4>
+        <div>
+        <label><strong>Nombre:</strong></label> {{ currentProfesor.nombre }}
+        </div>
+        <div>
+        <label><strong>Apellido:</strong></label>
+        {{ currentProfesor.apellidos }}
+        </div>
+        <div>
+        <label><strong>Genero:</strong></label>
+        {{ currentProfesor.genero }}
+        </div>
+        
+        <a class="badge badge-warning" routerLink="/profesor/{{currentProfesor.id}}">
+        Edit
+        </a>
+    }
+} @else {
+    @if (currentProfesor.id) {
+    <div class="edit-form">
+      <h4>Profesor</h4>
+      <form>
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text" class="form-control" id="nombre" [(ngModel)]="currentProfesor.nombre" name="nombre" />
+        </div>
+        <div class="form-group">
+          <label for="apellido">Apellido</label>
+          <input type="text" class="form-control" id="apellido" [(ngModel)]="currentProfesor.apellidos" name="apellido" />
+        </div>
+        <div class="form-group">
+          <label><strong>Genero:</strong></label>
+          {{ currentProfesor.genero}}
+        </div>
+      </form>
+    
+      <button type="submit" class="badge badge-success mr-2" routerLink="/profesor">
+        Home
+      </button>
+    
+      <button class="badge badge-danger mr-2" (click)="deleteProfesor()">
+        Delete
+      </button>
+    
+      <button type="submit" class="badge badge-success mb-2" (click)="updateProfesor()">
+        Update
+      </button>
+    
+      <p>{{ message }}</p>
+    </div>
+    } @else {<p>Cannot access this Profesor...</p>}
+    }
