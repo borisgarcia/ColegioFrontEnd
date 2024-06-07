@@ -1,26 +1,26 @@
 <div>
     <div class="submit-form">
         @if (!submitted) {
-        <div class="form-group">
-            <label for="nombre">Nombre</label>
-            <input type="text" class="form-control" id="nombre" required [(ngModel)]="profesor.nombre" name="nombre" />
-        </div>
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" id="nombre" required [(ngModel)]="profesor.nombre" name="nombre" />
+            </div>
 
-        <div class="form-group">
-            <label for="apellidos">Apellidos</label>
-            <input class="form-control" id="apellidos" required [(ngModel)]="profesor.apellidos" name="apellidos" />
-        </div>
+            <div class="form-group">
+                <label for="apellidos">Apellidos</label>
+                <input class="form-control" id="apellidos" required [(ngModel)]="profesor.apellidos" name="apellidos" />
+            </div>
 
-        <div class="form-group">
-            <label for="genero">Genero</label>
-            <input class="form-control" id="genero" required [(ngModel)]="profesor.genero" name="genero" />
-        </div>
+            <div class="form-group">
+                <label for="genero">Genero</label>
+                <input class="form-control" id="genero" required [(ngModel)]="profesor.genero" name="genero" />
+            </div>
 
-        <button (click)="saveProfesor()" class="btn btn-success">Submit</button>
+            <button (click)="saveProfesor()" class="btn btn-success">Submit</button>
         } @else {
-        <h4>Profesor was submitted successfully!</h4>
-        <button class="btn btn-success" style="margin-top: 5px;" routerLink="/profesores">Home</button>
-        <button class="btn btn-success" style="margin-left: 15px; margin-top: 5px;" (click)="newProfesor()">Add</button>
+            <h4>Profesor was submitted successfully!</h4>
+            <button class="btn btn-success" style="margin-top: 5px;" routerLink="/profesores">Home</button>
+            <button class="btn btn-success" style="margin-left: 15px; margin-top: 5px;" (click)="newProfesor()">Add</button>
         }
     </div>
 </div>

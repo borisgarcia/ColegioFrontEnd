@@ -2,15 +2,15 @@
     @if (currentProfesor.id){
         <h4>Profesor</h4>
         <div>
-        <label><strong>Nombre:</strong></label> {{ currentProfesor.nombre }}
+          <label><strong>Nombre:</strong></label> {{ currentProfesor.nombre }}
         </div>
         <div>
-        <label><strong>Apellido:</strong></label>
-        {{ currentProfesor.apellidos }}
+          <label><strong>Apellido:</strong></label>
+          {{ currentProfesor.apellidos }}
         </div>
         <div>
-        <label><strong>Genero:</strong></label>
-        {{ currentProfesor.genero }}
+          <label><strong>Genero:</strong></label>
+          {{ currentProfesor.genero }}
         </div>
         
         <a class="badge badge-warning" routerLink="/profesor/{{currentProfesor.id}}">

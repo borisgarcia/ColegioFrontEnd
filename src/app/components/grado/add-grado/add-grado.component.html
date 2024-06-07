@@ -1,0 +1,28 @@
+<div>
+    <div class="submit-form">
+        @if (!submitted) {
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" id="nombre" required [(ngModel)]="grado.nombre" name="nombre" />
+            </div>
+
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-label>Seleccionar un profesor</mat-label>
+                    <mat-select [(ngModel)]="grado.profesorId" required>
+                        <mat-option *ngFor="let profesor of profesores" [value]="profesor.id">
+                            {{ profesor.nombre }} {{" "}}{{profesor.apellidos}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+
+            </div>
+            <button (click)="saveGrado()" class="btn btn-success">Submit</button>
+        } @else {
+            <h4>Grado was submitted successfully!</h4>
+            <button class="btn btn-success" style="margin-top: 5px;" routerLink="/grados">Home</button>
+            <button class="btn btn-success" style="margin-left: 15px; margin-top: 5px;" (click)="newGrado()">Add</button>
+        }
+    </div>
+</div>

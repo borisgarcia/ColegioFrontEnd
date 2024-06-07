@@ -22,10 +22,10 @@ export class ProfesorListComponent implements OnInit {
   constructor(private profesorService: ProfesorService) { }
 
   ngOnInit(): void {
-    this.retrieveProfesors();
+    this.retrieveProfesores();
   }
 
-  retrieveProfesors(): void {
+  retrieveProfesores(): void {
     this.profesorService.getAll()
       .subscribe({
         next: (data) => {
@@ -37,7 +37,7 @@ export class ProfesorListComponent implements OnInit {
   }
 
   refreshList(): void {
-    this.retrieveProfesors();
+    this.retrieveProfesores();
     this.currentProfesor = {
       id: '',
       nombre: '',

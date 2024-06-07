@@ -6,6 +6,9 @@ import { AddAlumnoComponent } from './components/alumno/add-alumno/add-alumno.co
 import { ProfesorListComponent } from './components/profesor/profesor-list/profesor-list.component';
 import { ProfesorDetailsComponent } from './components/profesor/profesor-details/profesor-details.component';
 import { AddProfesorComponent } from './components/profesor/add-profesor/add-profesor.component';
+import { GradosListComponent } from './components/grado/grados-list/grados-list.component';
+import { GradoDetailsComponent } from './components/grado/grado-details/grado-details.component';
+import { AddGradoComponent } from './components/grado/add-grado/add-grado.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'alumnos', pathMatch: 'full' },
@@ -14,7 +17,10 @@ const routes: Routes = [
   { path: 'add/alumno', component: AddAlumnoComponent },
   { path: 'profesores', component: ProfesorListComponent },
   { path: 'profesor/:id', component: ProfesorDetailsComponent },
-  { path: 'add/profesor', component: AddProfesorComponent }
+  { path: 'add/profesor', component: AddProfesorComponent },
+  { path: 'grados', component: GradosListComponent },
+  { path: 'grado/:id', component: GradoDetailsComponent },
+  { path: 'add/grado', component: AddGradoComponent }
 ];
 
 @NgModule({

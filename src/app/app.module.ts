@@ -12,6 +12,11 @@ import { AlumnosListComponent } from './components/alumno/alumnos-list/alumnos-l
 import { AddProfesorComponent } from './components/profesor/add-profesor/add-profesor.component';
 import { ProfesorDetailsComponent } from './components/profesor/profesor-details/profesor-details.component';
 import { ProfesorListComponent } from './components/profesor/profesor-list/profesor-list.component';
+import { AddGradoComponent } from './components/grado/add-grado/add-grado.component';
+import { GradoDetailsComponent } from './components/grado/grado-details/grado-details.component';
+import { GradosListComponent } from './components/grado/grados-list/grados-list.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -21,15 +26,21 @@ import { ProfesorListComponent } from './components/profesor/profesor-list/profe
     AlumnosListComponent,
     AddProfesorComponent,
     ProfesorDetailsComponent,
-    ProfesorListComponent
+    ProfesorListComponent,
+    AddGradoComponent,
+    GradoDetailsComponent,
+    GradosListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSelectModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

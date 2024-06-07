@@ -1,0 +1,45 @@
+@if (viewMode){
+    @if (currentGrado.id){
+        <h4>Grado</h4>
+        <div>
+            <label><strong>Nombre:</strong></label> {{ currentGrado.nombre }}
+        </div>
+        <div>
+            <label><strong>Profesor:</strong></label>
+            {{ currentGrado.profesor }}
+        </div>
+        <a class="badge badge-warning" routerLink="/grado/{{currentGrado.id}}">
+            Edit
+        </a>
+    }
+} @else {
+@if (currentGrado.id) {
+    <div class="edit-form">
+        <h4>Grado</h4>
+        <form>
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" id="nombre" [(ngModel)]="currentGrado.nombre" name="nombre" />
+            </div>
+            <div class="form-group">
+                <label for="profesor">Profesor</label>
+                <input type="text" class="form-control" id="profesor" [(ngModel)]="currentGrado.profesor" name="profesor" />
+            </div>
+        </form>
+
+        <button type="submit" class="badge badge-success mr-2" routerLink="/grado">
+            Home
+        </button>
+
+        <button class="badge badge-danger mr-2" (click)="deleteGrado()">
+            Delete
+        </button>
+
+        <button type="submit" class="badge badge-success mb-2" (click)="updateGrado()">
+            Update
+        </button>
+
+        <p>{{ message }}</p>
+    </div>
+} @else {<p>Cannot access this Grado...</p>}
+}
