@@ -10,7 +10,7 @@ import { Genero } from '../../../models/genero.enum';
   styleUrls: ['./profesor-details.component.css']
 })
 export class ProfesorDetailsComponent implements OnInit {
-
+  Genero = Genero;
   @Input() viewMode = false;
   @Input() currentProfesor: Profesor= new Profesor('','','','',0,[]);
 

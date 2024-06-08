@@ -19,19 +19,19 @@
 
     <div class="form-group">
       <label for="genero">Genero</label>
+      <div class="form-group">
+        <mat-form-field style="position:absolute;">
+          <mat-label>Seleccione</mat-label>
+          <mat-select [(value)]="alumno.genero">
+            <mat-option value="0">Masculino</mat-option>
+            <mat-option value="1">Femenino</mat-option>
+            <mat-option value="2">X</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
     </div>
-    <div>
-      <mat-form-field style="position:absolute;">
-        <mat-label>Seleccione</mat-label>
-        <mat-select [(value)]="alumno.genero">
-          <mat-option value="0">Masculino</mat-option>
-          <mat-option value="1">Femenino</mat-option>
-          <mat-option value="2">X</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-
-    <button (click)="saveAlumno()" class="btn btn-success">Submit</button>
+    
+    <button (click)="saveAlumno()" style="margin-top: 80px;" class="btn btn-success">Submit</button>
     } @else {
     <h4>Alumno was submitted successfully!</h4>
     <button class="btn btn-success" style="margin-top: 5px;" routerLink="/alumnos">Home</button>

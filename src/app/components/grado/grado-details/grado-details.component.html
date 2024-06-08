@@ -8,7 +8,7 @@
             <label><strong>Profesor:</strong></label>
             {{ currentGrado.profesor }}
         </div>
-        <a class="badge badge-warning" routerLink="/grado/{{currentGrado.id}}">
+        <a class="btn btn-warning btn-sm" routerLink="/grado/{{currentGrado.id}}">
             Edit
         </a>
     }
@@ -33,15 +33,15 @@
             </div>
         </form>
 
-        <button type="submit" class="badge badge-success mr-2" routerLink="/grados">
+        <button type="submit" class="btn btn-success mb-2" style="margin-right: 10px;" routerLink="/grados">
             Home
         </button>
 
-        <button class="badge badge-danger mr-2" (click)="deleteGrado()">
+        <button class="btn btn-danger mb-2" style="margin-right: 10px;" (click)="deleteGrado()">
             Delete
         </button>
 
-        <button type="submit" class="badge badge-success mb-2" (click)="updateGrado()">
+        <button type="submit" class="btn btn-success mb-2" (click)="updateGrado()">
             Update
         </button>
 

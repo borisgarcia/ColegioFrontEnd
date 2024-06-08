@@ -18,4 +18,9 @@ export class Alumno {
     fechaNacimiento: Date;
     genero: Genero;
     grados: string[];
+
+    getFechaNacimientoString(): string {
+        console.log(this.fechaNacimiento.toISOString().split('T')[0]);
+        return this.fechaNacimiento.toISOString().split('T')[0];
+    }
 }

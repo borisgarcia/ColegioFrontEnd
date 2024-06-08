@@ -17,7 +17,7 @@
       {{ currentAlumno.fechaNacimiento | date:'yyyy-MM-dd'}}
     </div>
 
-    <a class="badge badge-warning" routerLink="/alumnos/{{ currentAlumno.id }}">
+    <a class="btn btn-warning btn-sm" routerLink="/alumnos/{{ currentAlumno.id }}">
       Edit
     </a>
   }
@@ -36,34 +36,36 @@
     </div>
     <div class="form-group">
       <label for="fecha">Fecha de Nacimiento</label>
-      <input type="date" class="form-control" id="fecha" [(ngModel)]="currentAlumno.fechaNacimiento" name="fecha" />
+      <input type="date" class="form-control" id="fecha" [(ngModel)]="currentFechaNacimiento" name="fecha" />
     </div>
     <div class="form-group">
       <label><strong>Genero:</strong></label>
       <div>
         <mat-form-field style="position:absolute;">
           <mat-label>Seleccione</mat-label>
-          <mat-select [(value)]="currentAlumno.genero">
-            <mat-option value=0>Masculino</mat-option>
-            <mat-option value=1>Femenino</mat-option>
-            <mat-option value=2>X</mat-option>
+          <mat-select [(value)]="currentAlumno.genero" name="genero">
+            <mat-option [value]="Genero.Masculino">Masculino</mat-option>
+            <mat-option [value]="Genero.Femenino">Femenino</mat-option>
+            <mat-option [value]="Genero.X">X</mat-option>
           </mat-select>
         </mat-form-field>
-    </div>
+      </div>
     </div>
   </form>
 
-  <button type="submit" class="badge badge-success mr-2" routerLink="/alumnos">
-    Home
-  </button>
-
-  <button class="badge badge-danger mr-2" (click)="deleteAlumno()">
-    Delete
-  </button>
-
-  <button type="submit" class="badge badge-success mb-2" (click)="updateAlumno()">
-    Update
-  </button>
+  <div style="margin-top: 80px;">
+    <button type="submit" class="btn btn-success" style="margin-right: 10px;" routerLink="/alumnos">
+      Home
+    </button>
+  
+    <button class="btn btn-danger" style="margin-right: 10px;" (click)="deleteAlumno()">
+      Delete
+    </button>
+  
+    <button type="submit" class="btn btn-success" (click)="updateAlumno()">
+      Update
+    </button>
+  </div>
 
   <p>{{ message }}</p>
 </div>

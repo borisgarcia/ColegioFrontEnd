@@ -13,7 +13,7 @@
           {{ getEnumName(currentProfesor.genero) }}
         </div>
         
-        <a class="badge badge-warning" routerLink="/profesor/{{currentProfesor.id}}">
+        <a class="btn btn-warning btn-sm" routerLink="/profesor/{{currentProfesor.id}}">
         Edit
         </a>
     }
@@ -31,32 +31,33 @@
           <input type="text" class="form-control" id="apellido" [(ngModel)]="currentProfesor.apellidos" name="apellido" />
         </div>
         <div class="form-group">
-          <label><strong>Genero:</strong></label>
-          <div>
+          <label>Genero:</label>
+          <div  class="form-group">
             <mat-form-field style="position:absolute;">
               <mat-label>Seleccione</mat-label>
               <mat-select [(value)]="currentProfesor.genero">
-                <mat-option value="0">Masculino</mat-option>
-                <mat-option value="1">Femenino</mat-option>
-                <mat-option value="2">X</mat-option>
+                <mat-option [value]="Genero.Masculino">Masculino</mat-option>
+                <mat-option [value]="Genero.Femenino">Femenino</mat-option>
+                <mat-option [value]="Genero.X">X</mat-option>
               </mat-select>
             </mat-form-field>
         </div>
         </div>
       </form>
     
-      <button type="submit" class="badge badge-success mr-2" routerLink="/profesores">
-        Home
-      </button>
-    
-      <button class="badge badge-danger mr-2" (click)="deleteProfesor()">
-        Delete
-      </button>
-    
-      <button type="submit" class="badge badge-success mb-2" (click)="updateProfesor()">
-        Update
-      </button>
-    
+      <div style="margin-top: 80px;">
+        <button type="submit" class="btn btn-success mb-2" style="margin-right: 10px;" routerLink="/profesores">
+          Home
+        </button>
+      
+        <button class="btn btn-danger mb-2" style="margin-right: 10px;" (click)="deleteProfesor()">
+          Delete
+        </button>
+      
+        <button type="submit" class="btn btn-success mb-2" (click)="updateProfesor()">
+          Update
+        </button>
+      </div>
       <p>{{ message }}</p>
     </div>
     } @else {<p>Cannot access this Profesor...</p>}

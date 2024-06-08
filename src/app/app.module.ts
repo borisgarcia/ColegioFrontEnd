@@ -36,7 +36,7 @@ import { MatSelectModule } from '@angular/material/select';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    MatSelectModule
+    MatSelectModule  
   ],
   providers: [
     provideAnimationsAsync()

@@ -10,10 +10,11 @@ import { Genero } from '../../../models/genero.enum';
   styleUrls: ['./alumno-details.component.css']
 })
 export class AlumnoDetailsComponent implements OnInit {
-
+  Genero = Genero;
   @Input() viewMode = false;
   @Input() currentAlumno: Alumno = new Alumno('', '', '', '', new Date(), 0, []);
   message = '';
+  currentFechaNacimiento = new Date().toISOString().split('T')[0];
 
   constructor(
     private alumnoService: AlumnoService,
@@ -32,6 +33,7 @@ export class AlumnoDetailsComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.currentAlumno = data;
+          this.currentFechaNacimiento = new Date(data.fechaNacimiento).toISOString().split('T')[0];
         },
         error: (e) => console.error(e)
       });
@@ -39,7 +41,7 @@ export class AlumnoDetailsComponent implements OnInit {
 
   updateAlumno(): void {
     this.message = '';
-    console.log(this.currentAlumno);
+    this.currentAlumno.fechaNacimiento = new Date(this.currentFechaNacimiento);
     this.alumnoService.update(this.currentAlumno?.id, this.currentAlumno)
       .subscribe({
         next: (res) => { },
@@ -60,5 +62,4 @@ export class AlumnoDetailsComponent implements OnInit {
   getEnumName(id: number): string {
     return Genero[id];
   }
-
 }

@@ -25,7 +25,9 @@
                 </mat-form-field>
             </div>
 
-            <button (click)="saveProfesor()" class="btn btn-success">Submit</button>
+            <div style="margin-top: 100px;">
+                <button (click)="saveProfesor()" class="btn btn-success">Submit</button>
+            </div>
         } @else {
             <h4>Profesor was submitted successfully!</h4>
             <button class="btn btn-success" style="margin-top: 5px;" routerLink="/profesores">Home</button>

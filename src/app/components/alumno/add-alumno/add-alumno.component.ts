@@ -11,7 +11,7 @@ export class AddAlumnoComponent {
 
   alumno: Alumno = new Alumno('','','', '',new Date(), 0, []);
   submitted = false;
-
+  
   constructor(private alumnoService: AlumnoService) { }
 
   saveAlumno(): void {
