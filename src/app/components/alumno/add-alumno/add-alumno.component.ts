@@ -9,13 +9,7 @@ import { AlumnoService } from '../../../services/alumno.service';
 })
 export class AddAlumnoComponent {
 
-  alumno: Alumno = {
-    id: '',
-    nombre: '',
-    apellidos: '',
-    genero: 0,
-    fechaNacimiento: undefined
-  };
+  alumno: Alumno = new Alumno('','','', '',new Date(), 0, []);
   submitted = false;
 
   constructor(private alumnoService: AlumnoService) { }
@@ -23,17 +17,15 @@ export class AddAlumnoComponent {
   saveAlumno(): void {
     const data = {
       id: this.generateGUID(),
-      nombre: this.alumno.nombre,
-      apellidos: this.alumno.apellidos,
-      genero: Number(this.alumno.genero),
-      fechaNacimiento: this.alumno.fechaNacimiento,
-
+      nombre: this.alumno?.nombre,
+      apellidos: this.alumno?.apellidos,
+      genero: Number(this.alumno?.genero),
+      fechaNacimiento: this.alumno?.fechaNacimiento,
     };
 
     this.alumnoService.create(data)
       .subscribe({
         next: (res) => {
-          console.log(res);
           this.submitted = true;
         },
         error: (e) => console.error(e)
@@ -42,13 +34,7 @@ export class AddAlumnoComponent {
 
   newAlumno(): void {
     this.submitted = false;
-    this.alumno = {
-      id: '',
-      nombre: '',
-      apellidos: '',
-      genero: 0,
-      fechaNacimiento: undefined
-    };
+    this.alumno = new Alumno('','','', '',new Date(), 0, []);
   }
 
   generateGUID(): string {

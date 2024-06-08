@@ -1,8 +1,19 @@
+import { Genero } from "./genero.enum";
+
 export class Profesor {
-    constructor() {}
+    constructor(id: string, nombre: string, apellido: string, nombreCompleto: string, genero: Genero, grados: string[]) {
+        this.id = id,
+        this.nombre = nombre,
+        this.apellidos = apellido,
+        this.nombreCompleto = nombreCompleto,
+        this.genero = genero,
+        this.grados = grados
+    }
     
-    id: any | undefined;
-    nombre: string | undefined;
-    apellidos: string | undefined;
-    genero: number | undefined;
+    id: any;
+    nombre: string;
+    apellidos: string;
+    nombreCompleto: string;
+    genero: number;
+    grados: string[];
 }

@@ -4,7 +4,7 @@
     <ul class="list-group">
       @for (alumno of alumnos; track alumno.id; let i = $index) {
       <li class="list-group-item" [class.active]="i == currentIndex" (click)="setActiveAlumno(alumno, i)">
-        {{ alumno.nombre }} {{ alumno.apellidos }}
+        {{ alumno.nombreCompleto }}
       </li>
       }
     </ul>

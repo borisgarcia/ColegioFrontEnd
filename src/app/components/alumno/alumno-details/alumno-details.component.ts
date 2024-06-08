@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AlumnoService } from '../../../services/alumno.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Alumno } from '../../../models/alumno.model';
+import { Genero } from '../../../models/genero.enum';
 
 @Component({
   selector: 'app-alumno-details',
@@ -11,15 +12,7 @@ import { Alumno } from '../../../models/alumno.model';
 export class AlumnoDetailsComponent implements OnInit {
 
   @Input() viewMode = false;
-
-  @Input() currentAlumno: Alumno = {
-    id: '',
-    nombre: '',
-    apellidos: '',
-    genero: 0,
-    fechaNacimiento: undefined
-  };
-
+  @Input() currentAlumno: Alumno = new Alumno('', '', '', '', new Date(), 0, []);
   message = '';
 
   constructor(
@@ -39,7 +32,6 @@ export class AlumnoDetailsComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.currentAlumno = data;
-          console.log(data);
         },
         error: (e) => console.error(e)
       });
@@ -50,10 +42,7 @@ export class AlumnoDetailsComponent implements OnInit {
     console.log(this.currentAlumno);
     this.alumnoService.update(this.currentAlumno?.id, this.currentAlumno)
       .subscribe({
-        next: (res) => {
-          console.log(res);
-          //this.router.navigate(['/alumnos']);
-        },
+        next: (res) => { },
         error: (e) => console.error(e)
       });
   }
@@ -62,10 +51,14 @@ export class AlumnoDetailsComponent implements OnInit {
     this.alumnoService.delete(this.currentAlumno?.id)
       .subscribe({
         next: (res) => {
-          console.log(res);
           this.router.navigate(['/alumnos']);
         },
         error: (e) => console.error(e)
       });
   }
+
+  getEnumName(id: number): string {
+    return Genero[id];
+  }
+
 }

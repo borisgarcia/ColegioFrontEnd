@@ -11,12 +11,10 @@
                     <mat-label>Seleccionar un profesor</mat-label>
                     <mat-select [(ngModel)]="grado.profesorId" required>
                         <mat-option *ngFor="let profesor of profesores" [value]="profesor.id">
-                            {{ profesor.nombre }} {{" "}}{{profesor.apellidos}}
+                            {{ profesor.nombreCompleto}}
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
-
-
             </div>
             <button (click)="saveGrado()" class="btn btn-success">Submit</button>
         } @else {

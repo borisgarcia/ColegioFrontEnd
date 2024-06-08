@@ -10,12 +10,7 @@ import { GradoService } from '../../../services/grado.service';
 export class GradosListComponent implements OnInit {
 
   grados?: Grado[];
-  currentGrado: Grado = {
-    id: '',
-    nombre: '',
-    profesor: '',
-    profesorId: ''
-  };
+  currentGrado: Grado = new Grado('','','','');
   currentIndex = -1;
   title = '';
 
@@ -30,7 +25,6 @@ export class GradosListComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.grados = data;
-          console.log(data);
         },
         error: (e) => console.error(e)
       });
@@ -38,12 +32,7 @@ export class GradosListComponent implements OnInit {
 
   refreshList(): void {
     this.retrieveGrados();
-    this.currentGrado = {
-      id: '',
-      nombre: '',
-      profesor: '',
-      profesorId: ''
-    };
+    this.currentGrado = new Grado('','','','');
     this.currentIndex = -1;
   }
 

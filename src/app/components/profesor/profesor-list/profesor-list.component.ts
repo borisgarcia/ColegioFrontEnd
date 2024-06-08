@@ -10,12 +10,7 @@ import { ProfesorService } from '../../../services/profesor.service';
 export class ProfesorListComponent implements OnInit {
 
   profesores?: Profesor[];
-  currentProfesor: Profesor = {
-    id: '',
-    nombre: '',
-    apellidos: '',
-    genero: 0
-  };
+  currentProfesor: Profesor = new Profesor('','','','',0,[]);
   currentIndex = -1;
   title = '';
 
@@ -38,12 +33,7 @@ export class ProfesorListComponent implements OnInit {
 
   refreshList(): void {
     this.retrieveProfesores();
-    this.currentProfesor = {
-      id: '',
-      nombre: '',
-      apellidos: '',
-      genero: 0    
-    };
+    this.currentProfesor = new Profesor('','','','',0,[]);
     this.currentIndex = -1;
   }
 

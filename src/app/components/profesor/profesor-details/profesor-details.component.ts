@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ProfesorService } from '../../../services/profesor.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Profesor } from '../../../models/profesor.model';
+import { Genero } from '../../../models/genero.enum';
 
 @Component({
   selector: 'app-profesor-details',
@@ -11,13 +12,7 @@ import { Profesor } from '../../../models/profesor.model';
 export class ProfesorDetailsComponent implements OnInit {
 
   @Input() viewMode = false;
-
-  @Input() currentProfesor: Profesor = {
-    id: '',
-    nombre: '',
-    apellidos: '',
-    genero: 0
-  };
+  @Input() currentProfesor: Profesor= new Profesor('','','','',0,[]);
 
   message = '';
 
@@ -38,7 +33,6 @@ export class ProfesorDetailsComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.currentProfesor = data;
-          console.log(data);
         },
         error: (e) => console.error(e)
       });
@@ -50,8 +44,6 @@ export class ProfesorDetailsComponent implements OnInit {
     this.profesorService.update(this.currentProfesor?.id, this.currentProfesor)
       .subscribe({
         next: (res) => {
-          console.log(res);
-          //this.router.navigate(['/profesors']);
         },
         error: (e) => console.error(e)
       });
@@ -61,10 +53,13 @@ export class ProfesorDetailsComponent implements OnInit {
     this.profesorService.delete(this.currentProfesor?.id)
       .subscribe({
         next: (res) => {
-          console.log(res);
           this.router.navigate(['/profesors']);
         },
         error: (e) => console.error(e)
       });
+  }
+
+  getEnumName(id: number): string {
+    return Genero[id];
   }
 }

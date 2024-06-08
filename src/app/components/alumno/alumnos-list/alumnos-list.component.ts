@@ -10,13 +10,7 @@ import { AlumnoService } from '../../../services/alumno.service';
 export class AlumnosListComponent implements OnInit {
 
   alumnos?: Alumno[];
-  currentAlumno: Alumno = {
-    id: '',
-    nombre: '',
-    apellidos: '',
-    genero: 0,
-    fechaNacimiento: undefined
-  };
+  currentAlumno: Alumno = new Alumno('','','', '',new Date(), 0, []);
   currentIndex = -1;
   title = '';
 
@@ -31,7 +25,6 @@ export class AlumnosListComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.alumnos = data;
-          console.log(data);
         },
         error: (e) => console.error(e)
       });
@@ -39,13 +32,7 @@ export class AlumnosListComponent implements OnInit {
 
   refreshList(): void {
     this.retrieveAlumnos();
-    this.currentAlumno = {
-      id: '',
-      nombre: '',
-      apellidos: '',
-      genero: 0,
-      fechaNacimiento: undefined
-    };
+    this.currentAlumno = new Alumno('','','', '',new Date(), 0, []);
     this.currentIndex = -1;
   }
 

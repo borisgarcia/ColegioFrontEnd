@@ -13,7 +13,16 @@
 
             <div class="form-group">
                 <label for="genero">Genero</label>
-                <input class="form-control" id="genero" required [(ngModel)]="profesor.genero" name="genero" />
+            </div>
+            <div>
+                <mat-form-field style="position:absolute;">
+                  <mat-label>Seleccione</mat-label>
+                  <mat-select [(value)]="profesor.genero">
+                    <mat-option value="0">Masculino</mat-option>
+                    <mat-option value="1">Femenino</mat-option>
+                    <mat-option value="2">X</mat-option>
+                  </mat-select>
+                </mat-form-field>
             </div>
 
             <button (click)="saveProfesor()" class="btn btn-success">Submit</button>

@@ -1,8 +1,13 @@
 export class Grado {
-    constructor() {}
+    constructor(id: string, nombre: string, profesorId: string, profesor: string) {
+        this.id = id;
+        this.nombre = nombre;
+        this.profesorId = profesorId;
+        this.profesor = profesor;
+    }
     
-    id: any | undefined;
-    nombre: string | undefined;
-    profesorId: string | undefined;
-    profesor: string | undefined;
+    id: any;
+    nombre: string;
+    profesorId: string;
+    profesor: string;
 }

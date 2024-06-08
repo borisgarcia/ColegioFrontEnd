@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { GradoService } from '../../../services/grado.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Grado } from '../../../models/grado.model';
+import { Profesor } from '../../../models/profesor.model';
 
 @Component({
   selector: 'app-grado-details',
@@ -11,16 +12,10 @@ import { Grado } from '../../../models/grado.model';
 export class GradoDetailsComponent implements OnInit {
 
   @Input() viewMode = false;
-
-  @Input() currentGrado: Grado = {
-    id: '',
-    nombre: '',
-    profesor: '',
-    profesorId: ''
-  };
-
+  @Input() currentGrado: Grado = new Grado('','','','');
   message = '';
-
+  profesores?: Profesor[];
+  
   constructor(
     private gradoService: GradoService,
     private route: ActivatedRoute,
@@ -30,6 +25,7 @@ export class GradoDetailsComponent implements OnInit {
     if (!this.viewMode) {
       this.message = '';
       this.getGrado(this.route.snapshot.params["id"]);
+      this.retrieveProfesores();
     }
   }
 
@@ -38,7 +34,6 @@ export class GradoDetailsComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.currentGrado = data;
-          console.log(data);
         },
         error: (e) => console.error(e)
       });
@@ -50,7 +45,16 @@ export class GradoDetailsComponent implements OnInit {
     this.gradoService.update(this.currentGrado?.id, this.currentGrado)
       .subscribe({
         next: (res) => {
-          console.log(res);
+        },
+        error: (e) => console.error(e)
+      });
+  }
+
+  retrieveProfesores(): void {
+    this.gradoService.getAllProfesores()
+      .subscribe({
+        next: (data) => {
+          this.profesores = data;
         },
         error: (e) => console.error(e)
       });
@@ -60,7 +64,6 @@ export class GradoDetailsComponent implements OnInit {
     this.gradoService.delete(this.currentGrado?.id)
       .subscribe({
         next: (res) => {
-          console.log(res);
           this.router.navigate(['/grados']);
         },
         error: (e) => console.error(e)

@@ -10,7 +10,11 @@
     </div>
     <div>
       <label><strong>Genero:</strong></label>
-      {{ currentAlumno.genero }}
+      {{ getEnumName(currentAlumno.genero) }}
+    </div>
+    <div>
+      <label><strong>Fecha de Nacimiento:</strong></label>
+      {{ currentAlumno.fechaNacimiento | date:'yyyy-MM-dd'}}
     </div>
 
     <a class="badge badge-warning" routerLink="/alumnos/{{ currentAlumno.id }}">
@@ -32,11 +36,20 @@
     </div>
     <div class="form-group">
       <label for="fecha">Fecha de Nacimiento</label>
-      <input type="text" class="form-control" id="fecha" [(ngModel)]="currentAlumno.fechaNacimiento" name="fecha" />
+      <input type="date" class="form-control" id="fecha" [(ngModel)]="currentAlumno.fechaNacimiento" name="fecha" />
     </div>
     <div class="form-group">
       <label><strong>Genero:</strong></label>
-      {{ currentAlumno.genero}}
+      <div>
+        <mat-form-field style="position:absolute;">
+          <mat-label>Seleccione</mat-label>
+          <mat-select [(value)]="currentAlumno.genero">
+            <mat-option value=0>Masculino</mat-option>
+            <mat-option value=1>Femenino</mat-option>
+            <mat-option value=2>X</mat-option>
+          </mat-select>
+        </mat-form-field>
+    </div>
     </div>
   </form>
 

@@ -8,12 +8,7 @@ import { ProfesorService } from '../../../services/profesor.service';
   styleUrl: './add-profesor.component.css'
 })
 export class AddProfesorComponent {
-  profesor: Profesor = {
-    id: '',
-    nombre: '',
-    apellidos: '',
-    genero: 0
-  };
+  profesor: Profesor = new Profesor('','','','',0,[]);
   submitted = false;
 
   constructor(private profesorService: ProfesorService) { }
@@ -38,12 +33,7 @@ export class AddProfesorComponent {
 
   newProfesor(): void {
     this.submitted = false;
-    this.profesor = {
-      id: '',
-      nombre: '',
-      apellidos: '',
-      genero: 0
-    };
+    this.profesor = new Profesor('','','','',0,[]);
   }
 
   generateGUID(): string {
