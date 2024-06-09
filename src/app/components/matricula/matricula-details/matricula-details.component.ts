@@ -36,7 +36,6 @@ export class MatriculaDetailsComponent {
       .subscribe({
         next: (data) => {
           this.currentMatricula = data;
-          console.log(this.currentMatricula);
         },
         error: (e) => console.error(e)
       });
