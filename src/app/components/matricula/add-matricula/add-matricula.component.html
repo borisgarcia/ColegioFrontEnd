@@ -1,0 +1,49 @@
+<div>
+    <div class="submit-form">
+        @if (!submitted) {
+            <div class="form-group">
+                <label for="nombre">Seccion</label>
+                <input type="text" class="form-control" id="seccion" required [(ngModel)]="matricula.seccion" name="seccion" />
+            </div>
+
+            <div class="form-group">
+                <div>
+                    <label for="nombre">Alumno</label>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-label>Seleccionar un alumno</mat-label>
+                        <mat-select [(ngModel)]="matricula.alumnoId" required>
+                            <mat-option *ngFor="let alumno of alumnos" [value]="alumno.id">
+                                {{ alumno.nombreCompleto}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            
+            <div class="form-group">
+                <div>
+                    <label for="nombre">Grado</label>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-label>Seleccionar un grado</mat-label>
+                        <mat-select [(ngModel)]="matricula.gradoId" required>
+                            <mat-option *ngFor="let grado of grados" [value]="grado.id">
+                                {{ grado.nombre}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <button (click)="saveMatricula()" class="btn btn-success">Submit</button>
+        } @else {
+            <h4>Grado was submitted successfully!</h4>
+            <button class="btn btn-success" style="margin-top: 5px;" routerLink="/matriculas">Home</button>
+            <button class="btn btn-success" style="margin-left: 15px; margin-top: 5px;" (click)="newMatricula()">Add</button>
+        }
+    </div>
+</div>

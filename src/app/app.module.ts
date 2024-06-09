@@ -17,6 +17,9 @@ import { GradoDetailsComponent } from './components/grado/grado-details/grado-de
 import { GradosListComponent } from './components/grado/grados-list/grados-list.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatSelectModule } from '@angular/material/select';
+import { MatriculaDetailsComponent } from './components/matricula/matricula-details/matricula-details.component';
+import { MatriculaListComponent } from './components/matricula/matricula-list/matricula-list.component';
+import { AddMatriculaComponent } from './components/matricula/add-matricula/add-matricula.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { MatSelectModule } from '@angular/material/select';
     ProfesorListComponent,
     AddGradoComponent,
     GradoDetailsComponent,
-    GradosListComponent
+    GradosListComponent,
+    MatriculaDetailsComponent,
+    MatriculaListComponent,
+    AddMatriculaComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,16 @@
+<div class="list row">
+    <div class="col-md-6">
+        <h4>Matriculas</h4>
+        <ul class="list-group">
+            @for (matricula of matriculas; track matricula.id; let i = $index) {
+            <li class="list-group-item" [class.active]="i == currentIndex" (click)="setActiveMatricula(matricula, i)">
+                {{ matricula.seccion }}
+            </li>
+            }
+        </ul>
+        <button style="margin-top: 10px;" routerLink="/add/matricula/" class="btn btn-success">Add</button>
+    </div>
+    <div class="col-md-6">
+        <app-matricula-details [viewMode]=true [currentMatricula]=currentMatricula></app-matricula-details>
+    </div>
+</div>
