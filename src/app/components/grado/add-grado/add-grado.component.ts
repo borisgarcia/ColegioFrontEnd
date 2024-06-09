@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Grado } from '../../../models/grado.model';
 import { GradoService } from '../../../services/grado.service';
 import { Profesor } from '../../../models/profesor.model';
+import { generateGUID } from '../../../utils';
 
 @Component({
   selector: 'app-add-grado',
@@ -21,7 +22,7 @@ export class AddGradoComponent {
 
   saveGrado(): void {
     const data = {
-      id: this.generateGUID(),
+      id: generateGUID(),
       nombre: this.grado.nombre,
       profesorId: this.grado.profesorId
     };
@@ -48,13 +49,5 @@ export class AddGradoComponent {
         },
         error: (e) => console.error(e)
       });
-  }
-
-  generateGUID(): string {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-      var r = Math.random() * 16 | 0,
-        v = c === 'x' ? r : (r & 0x3) | 0x8;
-      return v.toString(16);
-    });
   }
 }

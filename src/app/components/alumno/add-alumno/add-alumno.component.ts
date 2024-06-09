@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Alumno } from '../../../models/alumno.model';
 import { AlumnoService } from '../../../services/alumno.service';
+import { generateGUID } from '../../../utils';
 
 @Component({
   selector: 'app-add-alumno',
@@ -16,7 +17,7 @@ export class AddAlumnoComponent {
 
   saveAlumno(): void {
     const data = {
-      id: this.generateGUID(),
+      id: generateGUID(),
       nombre: this.alumno?.nombre,
       apellidos: this.alumno?.apellidos,
       genero: Number(this.alumno?.genero),
@@ -35,13 +36,5 @@ export class AddAlumnoComponent {
   newAlumno(): void {
     this.submitted = false;
     this.alumno = new Alumno('','','', '',new Date(), 0, []);
-  }
-
-  generateGUID(): string {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-      var r = Math.random() * 16 | 0,
-        v = c === 'x' ? r : (r & 0x3) | 0x8;
-      return v.toString(16);
-    });
   }
 }

@@ -4,6 +4,7 @@ import { Profesor } from '../../../models/profesor.model';
 import { Alumno } from '../../../models/alumno.model';
 import { MatriculaService } from '../../../services/matricula.service';
 import { Grado } from '../../../models/grado.model';
+import { generateGUID } from '../../../utils';
 
 @Component({
   selector: 'app-add-matricula',
@@ -25,7 +26,7 @@ export class AddMatriculaComponent {
 
   saveMatricula(): void {
     const data = {
-      id: this.generateGUID(),
+      id: generateGUID(),
       alumnoId: this.matricula.alumnoId,
       gradoId: this.matricula.gradoId,
       seccion: this.matricula.seccion,
@@ -65,13 +66,5 @@ export class AddMatriculaComponent {
         },
         error: (e) => console.error(e)
       });
-  }
-
-  generateGUID(): string {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-      var r = Math.random() * 16 | 0,
-        v = c === 'x' ? r : (r & 0x3) | 0x8;
-      return v.toString(16);
-    });
-  }
+  }  
 }

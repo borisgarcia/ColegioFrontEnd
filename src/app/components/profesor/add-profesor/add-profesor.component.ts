@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Profesor } from '../../../models/profesor.model';
 import { ProfesorService } from '../../../services/profesor.service';
+import { generateGUID } from '../../../utils';
 
 @Component({
   selector: 'app-add-profesor',
@@ -15,7 +16,7 @@ export class AddProfesorComponent {
 
   saveProfesor(): void {
     const data = {
-      id: this.generateGUID(),
+      id: generateGUID(),
       nombre: this.profesor.nombre,
       apellidos: this.profesor.apellidos,
       genero: Number(this.profesor.genero),
@@ -34,13 +35,5 @@ export class AddProfesorComponent {
   newProfesor(): void {
     this.submitted = false;
     this.profesor = new Profesor('','','','',0,[]);
-  }
-
-  generateGUID(): string {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-      var r = Math.random() * 16 | 0,
-        v = c === 'x' ? r : (r & 0x3) | 0x8;
-      return v.toString(16);
-    });
   }
 }
